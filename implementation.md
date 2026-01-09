@@ -116,4 +116,4 @@ saved table as: merged_gaming_x_holiday
 
 ## Analytics
 
-[analytics](/analytics.md)
+[analytics (link)](/analytics.md)
