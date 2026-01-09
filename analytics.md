@@ -29,11 +29,10 @@ ORDER BY pct_increase DESC;
 
 ![holiday percentage increase](/images/holiday_percentage_increase.png)
 
-==very important analysis==
-
+*As it is seen in the table gaming hours on holidays can more than double compared to an average day, which is true for virtually any holiday, incuding Christmas, New years and also Labour day also*
 ### 2. Top 10 days (holidays) where gaming hours are increased
 
-showcase the top holidays by region based on your business goals , you can run a query that aggregates the total gaming hours for each holiday
+showcase the top holidays for gaming by region 
 
 ```
 WITH HolidayEngagement AS (
@@ -74,7 +73,7 @@ Top holidays for gaming in Great Britain:
 Top holidays for gaming in the United States:
 ![](/images/us_top_holidays.png)
 
-==very important analysis==
+*when broken down by countries you can see here the top 10 gaming days where all the gaming hours are summed New Years for example is in the top 3 in all 3 countries* (the numbers are in this order because of the query)
 
 ### 3. Market-Specific Peak Detection in the United States
 
@@ -93,7 +92,7 @@ LIMIT 10;
 ```
 ![](/images/top_gaming_days_us.png)
 
-==very important analysis==
+*here the data is ordered by how may hours people played it, and each day is labeled if it is a holiday or not, as it is shown, all top 10 results are on holidays (in the US)*
 
 ### 4. Top Game per Holiday in Germany
 
@@ -133,9 +132,9 @@ ORDER BY date ASC;
 
 ![](/images/games_on_days_germany.png)
 
-==very important analysis==
+*this quers shows us the top game on each holiday (in Germany) which we can see here is mostly Minecraft*
 
-### 5. 
+### 5. Total hours per game in Great Britain
 
 the historical data for the 'GB' region, groups the results by game title, and calculates the total hours played across the entire dataset
 
@@ -152,10 +151,9 @@ ORDER BY total_hours_played DESC;
 
 ![](/images/uk_games_ranked.png)
 
-==very important analysis==
+*this here is pretty self-explanatory, the games are ranked by how many hours were played all year*
 
-
-### 6.
+### 6. Gaming increase on holidays
 
 calculates the average gaming hours for each game on a normal day versus a holiday in the UK. This is excellent for proving which specific titles are "holiday favorites."
 
@@ -177,12 +175,11 @@ ORDER BY percentage_lift DESC;
 
 ![](/images/game_holiday_percent_helpicantnamethemanymore.png)
 
-==very important analysis==
-
+*here we can see the difference in averages on holidays versus non-holidays ordered by the difference in percentage (in Great Britain again) *
 
 ### 7.
 
-categorizes every day of the year into four distinct buckets. This allows you to prove to your stakeholders exactly how much "extra" value a holiday adds on top of a normal weekday or weekend baseline.
+categorizes every day of the year into four distinct buckets. 
 
 
 ```
@@ -219,7 +216,6 @@ ORDER BY avg_hours DESC;
 
 ![](/images/weekend_weekday_holiday.png)
 
-==very important analysis==
-
+*on weekdays that coincide with holidays we can see a significant increasse in average gaming hours*
 
 
