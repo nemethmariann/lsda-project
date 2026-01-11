@@ -177,7 +177,7 @@ ORDER BY percentage_lift DESC;
 
 *here we can see the difference in averages on holidays versus non-holidays ordered by the difference in percentage (in Great Britain again) *
 
-### 7.
+### 7. Weekends vs. Weekdays
 
 categorizes every day of the year into four distinct buckets. 
 
@@ -218,4 +218,6 @@ ORDER BY avg_hours DESC;
 
 *on weekdays that coincide with holidays we can see a significant increasse in average gaming hours*
 
+
+[Interpretation of the findings](/interpretation.md)
 
