@@ -218,6 +218,70 @@ ORDER BY avg_hours DESC;
 
 *on weekdays that coincide with holidays we can see a significant increasse in average gaming hours*
 
+## Correlation
 
-[Interpretation of the findings](/interpretation.md)
+### Holiday-gaming correlation by region
+```
+SELECT 
+    region,
+    -- CORR(y, x) calculates the Pearson coefficient
+    -- y = gaming hours (target), x = holiday status (indicator)
+    CORR(
+        CAST(hours_played AS DOUBLE), 
+        CAST(CASE WHEN h.name IS NOT NULL THEN 1 ELSE 0 END AS DOUBLE)
+    ) AS holiday_correlation_score
+FROM "gamingdb"."raw_gaming_data" g
+LEFT JOIN "gamingdb"."api_holiday_data" h 
+    ON g.date = h.date AND g.region = h.countryCode
+GROUP BY region;
+```
+![](/images/holi_corr.png)
+
+### Weekend-gaming correlation by region
+```
+SELECT 
+    region,
+    CORR(
+        CAST(hours_played AS DOUBLE), 
+        CAST(CASE WHEN extract(day_of_week from cast(date as date)) IN (6, 7) THEN 1 ELSE 0 END AS DOUBLE)
+    ) AS weekend_correlation_score
+FROM "gamingdb"."raw_gaming_data"
+GROUP BY region;
+```
+
+![](/images/wknd_corr.png)
+
+### 
+```
+WITH CategorizedData AS (
+    SELECT 
+        hours_played,
+        -- Determine Weekend (6=Sat, 7=Sun)
+        CASE WHEN extract(day_of_week from cast(g.date as date)) IN (6, 7) THEN 1 ELSE 0 END AS is_weekend,
+        -- Determine Holiday
+        CASE WHEN h.name IS NOT NULL THEN 1 ELSE 0 END AS is_holiday
+    FROM "gamingdb"."raw_gaming_data" g
+    LEFT JOIN "gamingdb"."api_holiday_data" h 
+        ON g.date = h.date AND g.region = h.countryCode
+)
+SELECT 
+    -- Correlation for Weekday Holidays
+    CORR(hours_played, CASE WHEN is_weekend = 0 AND is_holiday = 1 THEN 1 ELSE 0 END) AS holiday_weekday_corr,
+    -- Correlation for Weekend Holidays
+    CORR(hours_played, CASE WHEN is_weekend = 1 AND is_holiday = 1 THEN 1 ELSE 0 END) AS holiday_weekend_corr,
+    -- Correlation for Normal Weekends
+    CORR(hours_played, CASE WHEN is_weekend = 1 AND is_holiday = 0 THEN 1 ELSE 0 END) AS normal_weekend_corr,
+    -- Correlation for Normal Weekdays
+    CORR(hours_played, CASE WHEN is_weekend = 0 AND is_holiday = 0 THEN 1 ELSE 0 END) AS normal_weekday_corr
+FROM CategorizedData;
+```
+![](/images/hosszunev_corr.png)
+
+
+
+
+
+### Interpretation
+
+[Interpretation of the findings (link)](/interpretation.md)
 
