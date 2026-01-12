@@ -251,7 +251,7 @@ GROUP BY region;
 
 ![](/images/wknd_corr.png)
 
-### 
+### Weekend-holiday correlation
 ```
 WITH CategorizedData AS (
     SELECT 
