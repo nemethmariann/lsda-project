@@ -1,22 +1,13 @@
 # Key Performance Indicators
 
-## Forecast Accuracy 
-Measures the accuracy of the demand forecasts (predicted gaming hours) compared to the actual hours played.
+#### Holiday Marketing Lift
 
-Measurement: Calculated using Mean Absolute Percentage Error (MAPE) to determine the average percentage difference between predicted and actual values.
+Percent increase in gaming hours on a specific holiday compared to previous year
 
-Business Goal: High accuracy ensures that marketing budgets are allocated effectively, avoiding overspending on low-impact days or missing opportunities on high-demand holidays.
+#### Conversion Sustainability Score
 
-## Marketing Return on Ad Spend (ROAS)
-The amount of gross revenue earned for every dollar spent on advertising during holiday-targeted campaigns.
+Since the goal is to get more players, the KPI should track how much of holidays players actually keep playing later on
 
-Measurement: (Revenue from Holiday Campaign / Cost of Holiday Campaign).
+#### Regional Difference in Performance
 
-Business Goal: By using the Public Holiday API to time advertisements perfectly with "gaming booms," we aim to increase the efficiency of ad spend compared to non-targeted seasonal campaigns.
-
-## Holiday Retention Rate
-The percentage of players who joined or returned during a public holiday and remained active in the following 30 days.
-
-Measurement: Tracking the Day 30 (D30) Retention of cohorts that were acquired specifically during holiday-themed promotions.
-
-Business Goal: To verify if the forecasting-driven marketing is attracting "sticky" players who provide long-term Lifetime Value (LTV), rather than just temporary holiday traffic.
+Measure how holiday-targeted advertizement is different is different regions
